@@ -8,7 +8,7 @@ import { Conversations } from './pages/Conversations';
 
 // Protected Route component
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const { admin, isLoading } = useAuth();
+  const { user, isLoading } = useAuth();
 
   if (isLoading) {
     return (
@@ -18,7 +18,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
     );
   }
 
-  if (!admin) {
+  if (!user) {
     return <Navigate to="/login" replace />;
   }
 

@@ -25,7 +25,7 @@ const navItems = [
 
 export const Layout: React.FC = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
-  const { admin, logout } = useAuth();
+  const { user, logout } = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -53,7 +53,7 @@ export const Layout: React.FC = () => {
             </div>
             <div className="flex items-center space-x-4">
               <span className="text-sm text-gray-600">
-                {admin?.name || admin?.phoneNumber}
+                {user?.name || user?.email}
               </span>
               <button
                 onClick={handleLogout}
