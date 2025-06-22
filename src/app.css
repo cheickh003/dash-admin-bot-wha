@@ -1,0 +1,33 @@
+@import "tailwindcss";
+
+@theme {
+  --color-whatsapp-green: #25D366;
+  --color-whatsapp-darkgreen: #128C7E;
+  --color-whatsapp-teal: #075E54;
+  --color-whatsapp-light: #DCF8C6;
+  --color-whatsapp-blue: #34B7F1;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: rgb(249 250 251);
+  color: rgb(17 24 39);
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: rgb(17 24 39);
+    color: rgb(243 244 246);
+  }
+}

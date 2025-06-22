@@ -1,5 +1,5 @@
 import { databases, DATABASE_ID, COLLECTIONS, Query } from './appwrite';
-import { Admin } from '../types';
+import type { Admin } from '../types';
 
 export const authService = {
   async login(phoneNumber: string, pin: string): Promise<Admin | null> {
@@ -18,7 +18,7 @@ export const authService = {
         throw new Error('Admin not found');
       }
 
-      const admin = response.documents[0] as Admin;
+      const admin = response.documents[0] as unknown as Admin;
       
       // Verify PIN (in production, this should be done server-side)
       // For now, we'll do a simple comparison
@@ -95,7 +95,7 @@ export const authService = {
         DATABASE_ID,
         COLLECTIONS.ADMINS,
         adminId
-      ) as Admin;
+      ) as unknown as Admin;
 
       if (!admin.sessionExpiry) return false;
 

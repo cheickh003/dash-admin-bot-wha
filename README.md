@@ -44,22 +44,25 @@ La configuration Appwrite se trouve dans `src/services/appwrite.ts`:
 - Endpoint: `https://fra.cloud.appwrite.io/v1`
 - Project ID: `68586340002f83db8623`
 
-## Déploiement sur Appwrite Sites
+## Déploiement sur Vercel
 
-1. Build le projet:
-   ```bash
-   npm run build
-   ```
+### Configuration
 
-2. Dans Appwrite Console:
-   - Aller dans "Hosting" > "Sites"
-   - Créer un nouveau site
-   - Connecter votre repo GitHub
-   - Définir le dossier de build: `dist`
+1. Créez un nouveau projet sur Vercel
+2. Connectez votre repository GitHub
+3. Configurez les variables d'environnement:
+   - `VITE_APPWRITE_ENDPOINT`: https://fra.cloud.appwrite.io/v1
+   - `VITE_APPWRITE_PROJECT_ID`: 68586340002f83db8623
+   - `VITE_DATABASE_ID`: bot-db
 
-3. Configuration automatique:
-   - Commande de build: `npm run build`
-   - Dossier de sortie: `dist`
+4. Les paramètres de build sont automatiquement détectés grâce au fichier `vercel.json`
+
+### Configuration CORS dans Appwrite
+
+1. Allez dans votre projet Appwrite
+2. Paramètres > Plateformes > Ajouter une plateforme
+3. Sélectionnez "Web"
+4. Ajoutez votre domaine Vercel (ex: `https://votre-app.vercel.app`)
 
 ## Structure du projet
 

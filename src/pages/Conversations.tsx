@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { databases, DATABASE_ID, COLLECTIONS, Query } from '../services/appwrite';
-import { Conversation, Message } from '../types';
+import type { Conversation, Message } from '../types';
 import { MessageSquare, User, Search, Clock, ChevronRight } from 'lucide-react';
 import { format } from 'date-fns';
 import { fr } from 'date-fns/locale';
@@ -23,7 +23,7 @@ export const Conversations: React.FC = () => {
           Query.limit(100),
         ]
       );
-      setConversations(response.documents as Conversation[]);
+      setConversations(response.documents as unknown as Conversation[]);
     } catch (error) {
       console.error('Error fetching conversations:', error);
     } finally {
@@ -43,7 +43,7 @@ export const Conversations: React.FC = () => {
           Query.limit(50),
         ]
       );
-      setMessages(response.documents.reverse() as Message[]);
+      setMessages(response.documents.reverse() as unknown as Message[]);
     } catch (error) {
       console.error('Error fetching messages:', error);
     } finally {

@@ -7,11 +7,10 @@ import {
   Activity,
   RefreshCw,
   CheckCircle,
-  XCircle,
   TrendingUp,
   Bot
 } from 'lucide-react';
-import { BotStats } from '../types';
+import type { BotStats } from '../types';
 
 interface StatCard {
   title: string;
